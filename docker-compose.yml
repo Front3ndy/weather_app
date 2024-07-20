@@ -1,0 +1,26 @@
+services:
+  web-app:
+    build:
+      context: .
+    ports:
+      - "27:27"
+    volumes:
+      - ./weather:/weather
+    environment:
+      - DB_HOST=database
+      - DB_NAME=db_weather
+      - DB_USER=weather_user
+      - DB_PASS=password
+
+    command: >
+      sh -c "python manage.py runserver 0.0.0.0:27"
+
+    depends_on:
+      - database
+
+  database:
+    image: postgres:14.6-alpine
+    environment:
+      - POSTGRES_DB=db_weather
+      - POSTGRES_USER=weather_user
+      - POSTGRES_PASSWORD=password

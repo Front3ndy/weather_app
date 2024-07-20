@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'weather_app/css/index.css' %}">
+    <title>Погода</title>
+</head>
+<body>
+    <div class="container">
+        <div class="weather-main">
+            <h1>Check Weather</h1>
+            <div class="main-form">
+                <form action="" method="get">
+                        <input type="text" name="query" placeholder="Write city name">
+                        <button type="submit">Submit</button>
+                </form>
+            </div>
+            <div class="weather-report">
+                <div class="weather-info">
+                    <p>{{ city_name }}</p>
+                    <p>Теmperature: {{ current_temp }}°C</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

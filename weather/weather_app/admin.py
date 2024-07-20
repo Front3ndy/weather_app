@@ -1,3 +1,5 @@
 from django.contrib import admin
+from .models import TempTable
 
-# Register your models here.
+
+admin.site.register(TempTable)
